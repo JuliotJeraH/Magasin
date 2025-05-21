@@ -20,7 +20,7 @@ public class Magasin{
 
         // Ireo Vente
         Vente vente1= new Vente(produit2, client1, 10);
-        Vente vente2= new Vente(produit1, client3, 5);
+        Vente vente2= new Vente(produit1, client3, 6);
         Vente vente3= new Vente(produit3, client2, 20);
         Vente vente4= new Vente(produit1, client3, 15);
         Vente vente5= new Vente(produit2, client2, 8);
@@ -45,7 +45,7 @@ public class Magasin{
         System.out.println("\nLe produit le plus vendu est: "+plusVendu.nom + "\n");
         plusMarge= Vente.plusMarge(produits);
         PrcntMarge= Vente.pourcentage(plusMarge);
-        System.out.println("Le produit ayant plus de marge est: " + plusMarge.nom + " avec " + String.format("%.2f", PrcntMarge) + "% marge de benefice\n");
+        System.out.println("Le produit ayant plus de marge est: " + plusMarge.nom + " avec " + String.format("%.2f", PrcntMarge) + "% de marge beneficiaire\n");
         biscuitRakoto= Vente.biscuitRakoto(clients,ventes);
         System.out.println("La quantite de biscuit a ete achetee par Rakoto est: "+ biscuitRakoto+"\n");
     }

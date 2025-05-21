@@ -11,11 +11,17 @@ public class Vente {
     
     static Produit PlusVendu(Produit produits[], Vente ventes[]){
         Produit plusVendu = produits[0];
-        int maxQuantite = ventes[0].quantite;
+        int maxQuantite = 0;
         
-        for (int i = 1; i < ventes.length; i++) {
-            if (ventes[i].quantite > maxQuantite) {
-                maxQuantite = ventes[i].quantite;
+        for (int i = 0; i < ventes.length; i++) {
+            int quantiteTotale = ventes[i].quantite;
+            for (int j = i + 1; j < ventes.length; j++) {
+                if (ventes[j].p == ventes[i].p) {
+                    quantiteTotale += ventes[j].quantite;
+                }
+            }
+            if (quantiteTotale > maxQuantite) {
+                maxQuantite = quantiteTotale;
                 plusVendu = ventes[i].p;
             }
         }
