@@ -31,12 +31,12 @@ public class Vente {
     
     static Produit plusMarge(Produit produits[]){
         Produit plusMarge = produits[0];
-        double maxBenefice = produits[0].prixVente - produits[0].prixAchat;
-        
+        double maxPourcentageMarge = 0;
+      
         for (int i = 1; i < produits.length; i++) {
-            double Benefice = produits[i].prixVente - produits[i].prixAchat;
-            if (Benefice > maxBenefice) {
-                maxBenefice = Benefice;
+            double pourcentageTemp = (produits[i].prixVente - produits[i].prixAchat) / produits[i].prixVente * 100;
+            if (pourcentageTemp > maxPourcentageMarge) {
+                maxPourcentageMarge = pourcentageTemp;
                 plusMarge = produits[i];
             }
         }
