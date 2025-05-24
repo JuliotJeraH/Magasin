@@ -41,8 +41,9 @@ public class Magasin{
         ventes[4] = vente5;
 
         // Affichage 
-        plusVendu=Vente.PlusVendu(produits, ventes);
-        System.out.println("\nLe produit le plus vendu est: "+plusVendu.nom + "\n");
+        Produit[] DeuxPlusChers= Vente.DeuxPlusChers(produits);
+        
+        System.out.println("\nLes deux produit les plus cher sont: "+DeuxPlusChers[0].nom + " et " +DeuxPlusChers[1].nom+"\n");
         plusMarge= Vente.plusMarge(produits);
         PrcntMarge= Vente.pourcentage(plusMarge);
         System.out.println("Le produit ayant plus de marge est: " + plusMarge.nom + " avec " + String.format("%.2f", PrcntMarge) + "% de marge beneficiaire\n");

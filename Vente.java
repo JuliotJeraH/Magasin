@@ -9,23 +9,23 @@ public class Vente {
         this.quantite = quantite;
     }
     
-    static Produit PlusVendu(Produit produits[], Vente ventes[]){
-        Produit plusVendu = produits[0];
-        int maxQuantite = 0;
-        
-        for (int i = 0; i < ventes.length; i++) {
-            int quantiteTotale = ventes[i].quantite;
-            for (int j = i + 1; j < ventes.length; j++) {
-                if (ventes[j].p == ventes[i].p) {
-                    quantiteTotale += ventes[j].quantite;
-                }
-            }
-            if (quantiteTotale > maxQuantite) {
-                maxQuantite = quantiteTotale;
-                plusVendu = ventes[i].p;
+    static Produit[] DeuxPlusChers(Produit produits[]){
+        Produit plusChers[] = new Produit[2];
+                plusChers[0]= produits[0];
+                plusChers[1]= produits[1];
+
+        for (int i = 0; i < produits.length; i++) {
+            Produit p= produits[i]; 
+            if (p.prixVente > plusChers[0].prixVente) {
+                plusChers[0]=p;
+            }else if(plusChers[0].prixVente>p.prixVente){
+                Produit temp;
+                temp=plusChers[0];
+                plusChers[0]=plusChers[1];
+                plusChers[1]=temp;
             }
         }
-        return plusVendu;
+        return plusChers;
     }
 
     
