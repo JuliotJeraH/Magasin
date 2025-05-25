@@ -43,8 +43,11 @@ public class Main {
         Magasin magasin = new Magasin(produits, clients, ventes);
 
         // Affichage 
-        Produit[] DeuxPlusChers = magasin.DeuxPlusChers();
-        System.out.println("\nLes deux produit les plus cher sont: " + DeuxPlusChers[0].nom + " et " + DeuxPlusChers[1].nom + "\n");
+        Produit[] TroisPlusChers = magasin.nPlusChers(3);
+        System.out.println("\nLes trois produits les plus chers sont:");
+        for (Produit produit : TroisPlusChers) {
+            System.out.println("- " + produit.nom);
+        }
 
         plusMarge = magasin.plusMarge();
         PrcntMarge = magasin.pourcentage(plusMarge);

@@ -9,20 +9,22 @@ public class Magasin {
         this.ventes = ventes;
     }
 
-    Produit[] DeuxPlusChers() {
-        Produit plusChers[] = new Produit[2];
-        plusChers[0] = produits[0];
-        plusChers[1] = produits[1];
+    Produit[] nPlusChers(int n) {
+        Produit[] plusChers = new Produit[n];
+        for (int i = 0; i < n; i++) {
+            plusChers[i] = produits[i];
+        }
 
-        for (int i = 0; i < produits.length; i++) {
+        for (int i = n; i < produits.length; i++) {
             Produit p = produits[i];
-            if (p.prixVente > plusChers[0].prixVente) {
-                plusChers[0] = p;
-            } else if (plusChers[0].prixVente > p.prixVente) {
-                Produit temp;
-                temp = plusChers[0];
-                plusChers[0] = plusChers[1];
-                plusChers[1] = temp;
+            for (int j = 0; j < n; j++) {
+                if (p.prixVente > plusChers[j].prixVente) {
+                    for (int k = n - 1; k > j; k--) {
+                        plusChers[k] = plusChers[k - 1];
+                    }
+                    plusChers[j] = p;
+                    break;
+                }
             }
         }
         return plusChers;
